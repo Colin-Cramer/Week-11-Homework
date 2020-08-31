@@ -92,11 +92,11 @@ public class Menu {
 	}
 	
 	private void updatePizzaPie() throws SQLException {
-		System.out.println("Enter the Pizza ID to Modify: ");
-		int id = Integer.parseInt(scanner.nextLine());
 		System.out.println("Enter the New Pizza Name: ");
 		String pizzaPieName = scanner.nextLine();
-		pizzaPieDao.updatePizzaPieById(id, pizzaPieName);
+		System.out.println("Enter the Pizza ID to Modify: ");
+		int id = Integer.parseInt(scanner.nextLine());
+		pizzaPieDao.updatePizzaPieById(pizzaPieName, id);
 	}
 	
 	private void deletePizzaPie() throws SQLException {
@@ -122,12 +122,21 @@ public class Menu {
 	}
 	
 	private void updateToppings() throws SQLException {
-		System.out.println("Enter Pizza ID to Update Toppings: ");
-		int id = Integer.parseInt(scanner.nextLine());
-		System.out.println("Enter New Toppings: ");
-		createToppings();
-		toppingsDao.updateToppingsById(id);
-		
+		System.out.println("Enter The Type of Crust You Would Like: ");
+		String crust = scanner.nextLine();
+		System.out.println("Enter The Type of Sauce You Would Like: ");
+		String sauce = scanner.nextLine();
+		System.out.println("Enter The Type of Cheese You Would Like: ");
+		String cheese = scanner.nextLine();
+		System.out.println("Enter The Type of Meat You Would Like: ");
+		String meat = scanner.nextLine();
+		System.out.println("Enter The Type of Vegetable You Would Like: ");
+		String vegetable = scanner.nextLine();
+		System.out.println("Enter The Pizza ID This Will Belong To: ");
+		int pizzaPieId = Integer.parseInt(scanner.nextLine());
+		System.out.println("Enter The Toppings ID To Update: ");
+		int toppingsId = Integer.parseInt(scanner.nextLine());
+		toppingsDao.updateToppingsById(crust, sauce, cheese, meat, vegetable, pizzaPieId, toppingsId);
 	}
 	
 	private void deleteToppings() throws SQLException {

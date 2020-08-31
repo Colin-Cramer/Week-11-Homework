@@ -48,9 +48,10 @@ public class PizzaPieDao {
 		ps.executeUpdate();
 	}
 	
-	public void updatePizzaPieById(int id, String pizzaPieName) throws SQLException {
+	public void updatePizzaPieById(String pizzaPieName,int id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement(UPDATE_PIZZAPIE_QUERY_BY_ID);
 		ps.setString(1, pizzaPieName);
+		ps.setInt(2, id);
 		ps.executeUpdate();
 	}
 	
